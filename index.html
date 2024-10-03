@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Bestie!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+        h1 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+            height: 1em; /* to keep space while deleting text */
+            overflow: hidden; /* Prevents overflow */
+            white-space: nowrap; /* Prevents wrapping */
+            animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #ff69b4; }
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <video preload="auto" loop autoplay muted id="content" width="400" height="261">
+            <source src="https://media.tenor.com/905u0Gsct30AAAPo/tkthao219-bubududu.mp4" type="video/mp4">
+            <source src="https://media.tenor.com/905u0Gsct30AAAPs/tkthao219-bubududu.webm" type="video/webm">
+        </video>
+        
+        <h1 id="birthday-message"></h1>
+        <p>I cherish our bond more with every passing day. Here is to another year of unforgettable memories, each one brightened by your radiant smile and kind heart. Thank you for all the love, laughter, and everything you bring into my life. You truly deserve all the happiness and joy the universe has to offer.</p>
+        <p>~ Abood</p>
+    </div>
+
+    <script>
+        // Typewriter effect for the h1 element
+        const message = "happy birthday dodo <3";
+        const h1Element = document.getElementById('birthday-message');
+        let index = 0;
+
+        function type() {
+            if (index < message.length) {
+                h1Element.innerHTML += message.charAt(index);
+                index++;
+                setTimeout(type, 100); // Adjust typing speed here
+            } else {
+                setTimeout(() => {
+                    // Clear text after it completes typing
+                    h1Element.innerHTML = "";
+                    index = 0;
+                    setTimeout(type, 1000); // Wait before starting again
+                }, 2000); // Duration to wait before clearing
+            }
+        }
+
+        // Start typing effect
+        type();
+    </script>
+</body>
+</html>
